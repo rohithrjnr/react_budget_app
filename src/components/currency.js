@@ -1,33 +1,24 @@
+// Currency.js
 import React, { useState } from 'react';
 
-const CurrencySelector = () => {
-  // Define a state variable to store the selected currency
-  const [selectedCurrency, setSelectedCurrency] = useState('USD'); // Default to Dollar
-
-  // Define a mapping of currency symbols
-  const currencySymbols = {
-    USD: '$',   // Dollar
-    GBP: '£',   // Pound
-    EUR: '€',   // Euro
-    INR: '₹',   // Ruppee
-  };
+const CurrencySelector = ({ onChange }) => {
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
   const handleCurrencyChange = (e) => {
-    setSelectedCurrency(e.target.value);
+    const currency = e.target.value;
+    setSelectedCurrency(currency);
+    onChange(currency); 
   };
-const sas={
-    'background-color': 'linen',
-};
+
   return (
-    <div class="alert alert-success">
+    <div>
       <label>Select Currency:</label>
-      <select value={selectedCurrency} onChange={handleCurrencyChange} style={sas}>
+      <select value={selectedCurrency} onChange={handleCurrencyChange}>
         <option value="USD">Dollar ($)</option>
         <option value="GBP">Pound (£)</option>
         <option value="EUR">Euro (€)</option>
-        <option value="INR">Rupee (₹)</option>
+        <option value="INR">Ruppee (₹)</option>
       </select>
-      <br />
     </div>
   );
 };
