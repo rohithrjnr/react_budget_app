@@ -7,9 +7,12 @@ const Budget =()=>{
     const handleBudgetChange =(event) => {
         setNewBudget(event.target.value);
     }
+if (newBudget>=2000000 || newBudget<900){
+    alert("This is not a good budget");
+}
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: ${budget}</span>
+            <span>Budget: </span>
             <input type='number' step='10' value={newBudget} onChange={handleBudgetChange}></input>
         </div>
 
